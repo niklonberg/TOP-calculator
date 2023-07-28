@@ -1,5 +1,5 @@
-import Calculator from "../service/calculator.js";
+import Calculator from "../services/calculator-service.js";
 
 const calc = new Calculator();
 
-console.log(calc.calculate(2, 4, '+'));
+console.log(calc.calculate(2, 4, '*'));
