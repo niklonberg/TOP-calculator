@@ -2,21 +2,38 @@ class Calculator {
   constructor() {
   }
 
-  add(x, y) {
-    return x + y;
+  add(num1, num2) {
+    return num1 + num2;
   }
 
-  subtract(x, y) {
-    return x - y;
+  subtract(num1, num2) {
+    return num1 - num2;
   }
 
-  divide(x, y) {
-    return x / y;
+  divide(num1, num2) {
+    return num1 / num2;
   }
 
-  multiply(x, y) {
-    return x * y;
+  multiply(num1, num2) {
+    return num1 * num2;
+  }
+
+  calculate(num1, num2, operator) {
+    switch (operator) {
+      case '+':
+        return this.add(num1, num2);
+
+      case '-':
+        return this.subtract(num1, num2);
+
+      case '/':
+        return this.divide(num1, num2);
+        
+      case '*':
+        return this.multiply(num1, num2)
+    }
   }
 }
+/* consider changing parameters to an object with num1, num2, & operator keys */
 
 export default Calculator;
