@@ -3,6 +3,7 @@ import Calculator from "../services/calculator-service.js";
 
 /* class instantiation */
 const CalculatorService = new Calculator();
+const KeypadService = new KeyPad();
 
 /* references */
 
@@ -18,8 +19,11 @@ const CalculatorService = new Calculator();
 
 /* main */
 
-keypad.addEventListener('click', (event) => {
-  console.log(event.target)
-})
+  /* event listeners */
+  keypad.addEventListener('click', (event) => {
+    console.log(event.target)
+  })
+
+  /*  */
 
 console.log(CalculatorService.add(2,4))
