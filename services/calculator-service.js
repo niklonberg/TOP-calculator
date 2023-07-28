@@ -1,4 +1,4 @@
-class CalculatorService {
+class Calculator {
   constructor() {
   }
 

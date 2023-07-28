@@ -1,8 +1,8 @@
 /* imports */
-import CalculatorService from "../services/calculator-service.js";
+import Calculator from "../services/calculator-service.js";
 
 /* class instantiation */
-const CalculatorService = new CalculatorService();
+const CalculatorService = new Calculator();
 
 /* references */
 
@@ -18,3 +18,8 @@ const CalculatorService = new CalculatorService();
 
 /* main */
 
+keypad.addEventListener('click', (event) => {
+  console.log(event.target)
+})
+
+console.log(CalculatorService.add(2,4))
