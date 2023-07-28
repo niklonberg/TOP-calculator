@@ -24,9 +24,17 @@ const KeypadService = new Keypad();
   keypad.addEventListener('click', (event) => {
     console.log(event.target)
 
-    const number = event.target.textContent;
+    if (event.target.className === "number") {
+      const number = event.target.textContent;
+      displayCurrent.textContent += number;
+    }
 
-    displayCurrent.textContent += number;
+    if (event.target.className === "operator") {
+
+    }
+
+    if (event.target.className === "decimal") {
+    }
   })
 
   /*  */
