@@ -23,8 +23,10 @@ const KeypadService = new Keypad();
   /* event listeners */
   keypad.addEventListener('click', (event) => {
     console.log(event.target)
-    const key = event.target.textContent;
-    console.log(key);
+
+    const number = event.target.textContent;
+
+    displayCurrent.textContent += number;
   })
 
   /*  */
