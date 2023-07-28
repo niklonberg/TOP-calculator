@@ -1,9 +1,10 @@
 /* imports */
 import Calculator from "../services/calculator-service.js";
+import Keypad from "../services/keypad-service.js"
 
 /* class instantiation */
 const CalculatorService = new Calculator();
-const KeypadService = new KeyPad();
+const KeypadService = new Keypad();
 
 /* references */
 
@@ -22,6 +23,8 @@ const KeypadService = new KeyPad();
   /* event listeners */
   keypad.addEventListener('click', (event) => {
     console.log(event.target)
+    const key = event.target.textContent;
+    console.log(key);
   })
 
   /*  */
