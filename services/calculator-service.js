@@ -26,10 +26,10 @@ class Calculator {
       case '-':
         return this.subtract(num1, num2);
 
-      case '/':
+      case '%':
         return this.divide(num1, num2);
         
-      case '*':
+      case 'x':
         return this.multiply(num1, num2)
     }
   }
