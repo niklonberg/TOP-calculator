@@ -3,19 +3,19 @@ class Calculator {
   }
 
   add(calcObj) {
-    return calcObj.num1 + calcObj.num2;
+    return calcObj[0] + calcObj[1];
   }
 
   subtract(calcObj) {
-    return calcObj.num1 - calcObj.num2;
+    return calcObj[0] - calcObj[1];
   }
 
   divide(calcObj) {
-    return calcObj.num1 / calcObj.num2;
+    return calcObj[0] / calcObj[1];
   }
 
   multiply(calcObj) {
-    return calcObj.num1 * calcObj.num2;
+    return calcObj[0] * calcObj[1];
   }
 
   calculate(calcObj) {

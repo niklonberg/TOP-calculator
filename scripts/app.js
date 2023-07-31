@@ -8,10 +8,10 @@ const KeypadService = new Keypad();
 
 /* Calculation object */
 const calcObj = {
-  num1: 5,
-  num2: 2,
-  operator : "x",
-  result: 0,
+  previousValue: 0,
+  currentValue: 0,
+  operator : "",
+  isGoing: false,
 }
 
 /* references */
@@ -39,22 +39,22 @@ const calcObj = {
       const number = event.target.textContent;
       display.current.textContent += number;
       calcObj.num1 = Number(display.current.textContent);
-      console.log(calcObj.num1);
-      console.log(typeof(calcObj.num1));
       console.log(`num 1 is: ${calcObj.num1} num2 is: ${calcObj.num2}`)
     }
 
     if (event.target.className === "operator") {
       /* calculation */
       calcObj.operator = event.target.textContent;
+      display.last.textContent = calcObj.num1;
+      display.current.textContent = "";
 
-      if (calcObj.num2 !== 0) {
+      if (calcObj.isGoing) {
         console.log(CalculatorService.calculate(calcObj))
+        calcObj.num2 = calcObj.num1;
+      } else {
+        calcObj.num2 = calcObj.num1;
+        calcObj.isGoing = true;
       }
-
-      calcObj.num2 = calcObj.num1;
-
-      /* display */
 
       console.log(`num 1 is: ${calcObj.num1} num2 is: ${calcObj.num2}`)
     }
@@ -68,5 +68,3 @@ const calcObj = {
       display.last.textContent = "";
     }
   })
-
-  console.log(CalculatorService.calculate(calcObj))
