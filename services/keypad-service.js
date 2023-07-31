@@ -1,8 +1,12 @@
 class Keypad {
   constructor() {
   }
+
+
   
-  clear() {
+  clear(display) {
+    display.last.textContent = "";
+    display.current.textContent = "";
   }
 }
 

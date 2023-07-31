@@ -9,10 +9,13 @@ const KeypadService = new Keypad();
 /* references */
 
   /* display */
-  const display = document.querySelector('.display');
+  const display = {
+    last: document.querySelector(".display__last"),
+    current: document.querySelector(".display__current"),
+  }
   
-  const displayLast = document.querySelector(".display__last");
-  const displayCurrent = document.querySelector(".display__current");
+  /* const displayLast = document.querySelector(".display__last");
+  const displayCurrent = document.querySelector(".display__current"); */
   const displayUndo = document.querySelector(".display__undo");
   
   /* keypad */
@@ -26,14 +29,16 @@ const KeypadService = new Keypad();
 
     if (event.target.className === "number") {
       const number = event.target.textContent;
-      displayCurrent.textContent += number;
+      display.current.textContent += number;
     }
 
     if (event.target.className === "operator") {
-
+      display.last.textContent = display.current.textContent;
+      display.last.textContent += " " + event.target.textContent
     }
 
     if (event.target.className === "decimal") {
+      KeypadService.clear(display)
     }
   })
 
