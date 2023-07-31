@@ -38,25 +38,24 @@ const calcObj = {
     if (event.target.className === "number") {
       const number = event.target.textContent;
       display.current.textContent += number;
-      calcObj.num1 = Number(display.current.textContent);
-      console.log(`num 1 is: ${calcObj.num1} num2 is: ${calcObj.num2}`)
+      calcObj.currentValue = Number(display.current.textContent);
+      console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`)
     }
 
     if (event.target.className === "operator") {
       /* calculation */
-      calcObj.operator = event.target.textContent;
-      display.last.textContent = calcObj.num1;
+      calcObj.operator = event.target.textContent;   
+
       display.current.textContent = "";
 
       if (calcObj.isGoing) {
-        console.log(CalculatorService.calculate(calcObj))
-        calcObj.num2 = calcObj.num1;
+        calcObj.previousValue = CalculatorService.calculate(calcObj)
       } else {
-        calcObj.num2 = calcObj.num1;
+        calcObj.previousValue = calcObj.currentValue;
         calcObj.isGoing = true;
       }
 
-      console.log(`num 1 is: ${calcObj.num1} num2 is: ${calcObj.num2}`)
+      console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`)
     }
 
     if (event.target.className === "decimal") {

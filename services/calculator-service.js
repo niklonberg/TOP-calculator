@@ -3,19 +3,19 @@ class Calculator {
   }
 
   add(calcObj) {
-    return calcObj[previousValue] + calcObj[currentValue];
+    return calcObj.previousValue + calcObj.currentValue;
   }
 
   subtract(calcObj) {
-    return calcObj[previousValue] - calcObj[currentValue];
+    return calcObj.previousValue - calcObj.currentValue;
   }
 
   divide(calcObj) {
-    return calcObj[previousValue] / calcObj[currentValue];
+    return calcObj.previousValue / calcObj.currentValue;
   }
 
   multiply(calcObj) {
-    return calcObj[previousValue] * calcObj[currentValue];
+    return calcObj.previousValue * calcObj.currentValue;
   }
 
   calculate(calcObj) {
@@ -34,6 +34,5 @@ class Calculator {
     }
   }
 }
-/* consider changing parameters to an object with num1, num2, & operator keys */
 
 export default Calculator;
