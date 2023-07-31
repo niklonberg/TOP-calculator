@@ -35,26 +35,21 @@ const calcObj = {
   keypad.addEventListener('click', (event) => {
     console.log(event.target)
 
-    
-
     if (event.target.className === "number") {
       const number = event.target.textContent;
       display.current.textContent += number;
+      calcObj.num1 = Number(display.current.textContent);
+      console.log(calcObj.num1);
+      console.log(typeof(calcObj.num1));
     }
 
     if (event.target.className === "operator") {
-      display.last.textContent = display.current.textContent;
+      calcObj.operator = event.target.textContent;
 
-      display.current.textContent = "";
 
-      display.last.textContent += " " + event.target.textContent;
     }
 
     if (event.target.className === "decimal") {
       KeypadService.clear(display)
     }
   })
-
-  /*  */
-
-console.log(CalculatorService.add(2,4))
