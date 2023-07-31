@@ -50,6 +50,11 @@ const calcObj = {
     }
 
     if (event.target.className === "decimal") {
-      KeypadService.clear(display)
+      display.current.textContent += ",";
+    }
+
+    if (event.target.className ==="all-clear") {
+      display.current.textContent = "";
+      display.last.textContent = "";
     }
   })
