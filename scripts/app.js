@@ -29,12 +29,14 @@ const KeypadService = new Keypad();
 
     if (event.target.className === "number") {
       const number = event.target.textContent;
+      
       display.current.textContent += number;
     }
 
     if (event.target.className === "operator") {
       display.last.textContent = display.current.textContent;
-      display.last.textContent += " " + event.target.textContent
+      display.current.textContent = "";
+      display.last.textContent += " " + event.target.textContent;
     }
 
     if (event.target.className === "decimal") {

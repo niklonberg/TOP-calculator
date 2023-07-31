@@ -5,3 +5,16 @@
 body {
   background-color: chocolate;
 }
+
+.display__last, .display__current {
+  height: 30px;
+  width: 60px;
+}
+
+.display__current {
+  background-color: white;
+}
+
+.display__last {
+  background-color: yellow;
+}
