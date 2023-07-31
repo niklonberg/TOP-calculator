@@ -6,6 +6,14 @@ import Keypad from "../services/keypad-service.js"
 const CalculatorService = new Calculator();
 const KeypadService = new Keypad();
 
+/* Calculation object */
+const calcObj = {
+  num1: 0,
+  num2: 0,
+  operator : "",
+  result: 0,
+}
+
 /* references */
 
   /* display */
@@ -27,15 +35,18 @@ const KeypadService = new Keypad();
   keypad.addEventListener('click', (event) => {
     console.log(event.target)
 
+    
+
     if (event.target.className === "number") {
       const number = event.target.textContent;
-      
       display.current.textContent += number;
     }
 
     if (event.target.className === "operator") {
       display.last.textContent = display.current.textContent;
+
       display.current.textContent = "";
+
       display.last.textContent += " " + event.target.textContent;
     }
 
