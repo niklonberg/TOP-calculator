@@ -2,35 +2,35 @@ class Calculator {
   constructor() {
   }
 
-  add(num1, num2) {
-    return num1 + num2;
+  add(calcObj) {
+    return calcObj.num1 + calcObj.num2;
   }
 
-  subtract(num1, num2) {
-    return num1 - num2;
+  subtract(calcObj) {
+    return calcObj.num1 - calcObj.num2;
   }
 
-  divide(num1, num2) {
-    return num1 / num2;
+  divide(calcObj) {
+    return calcObj.num1 / calcObj.num2;
   }
 
-  multiply(num1, num2) {
-    return num1 * num2;
+  multiply(calcObj) {
+    return calcObj.num1 * calcObj.num2;
   }
 
-  calculate(num1, num2, operator) {
-    switch (operator) {
+  calculate(calcObj) {
+    switch (calcObj.operator) {
       case '+':
-        return this.add(num1, num2);
+        return this.add(calcObj);
 
       case '-':
-        return this.subtract(num1, num2);
+        return this.subtract(calcObj);
 
       case '%':
-        return this.divide(num1, num2);
+        return this.divide(calcObj);
         
       case 'x':
-        return this.multiply(num1, num2)
+        return this.multiply(calcObj)
     }
   }
 }

@@ -8,9 +8,9 @@ const KeypadService = new Keypad();
 
 /* Calculation object */
 const calcObj = {
-  num1: 0,
-  num2: 0,
-  operator : "",
+  num1: 5,
+  num2: 2,
+  operator : "x",
   result: 0,
 }
 
@@ -41,12 +41,22 @@ const calcObj = {
       calcObj.num1 = Number(display.current.textContent);
       console.log(calcObj.num1);
       console.log(typeof(calcObj.num1));
+      console.log(`num 1 is: ${calcObj.num1} num2 is: ${calcObj.num2}`)
     }
 
     if (event.target.className === "operator") {
+      /* calculation */
       calcObj.operator = event.target.textContent;
 
+      if (calcObj.num2 !== 0) {
+        console.log(CalculatorService.calculate(calcObj))
+      }
 
+      calcObj.num2 = calcObj.num1;
+
+      /* display */
+
+      console.log(`num 1 is: ${calcObj.num1} num2 is: ${calcObj.num2}`)
     }
 
     if (event.target.className === "decimal") {
@@ -58,3 +68,5 @@ const calcObj = {
       display.last.textContent = "";
     }
   })
+
+  console.log(CalculatorService.calculate(calcObj))
