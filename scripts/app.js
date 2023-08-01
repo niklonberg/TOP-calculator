@@ -47,7 +47,6 @@ const calcObj = {
     if (event.target.className === "operator") {
       /* calculation */
       calcObj.currentOperator = event.target.textContent;
-      display.current.textContent = "";
       
       if (calcObj.isGoing) {
         calcObj.previousValue = CalculatorService.calculate(calcObj);
@@ -60,6 +59,8 @@ const calcObj = {
         calcObj.isGoing = true;
       }
 
+      display.current.textContent = "";
+      calcObj.currentValue = 0;
       console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`);
       console.log(`curr oper: ${calcObj.currentOperator} prev oper: ${calcObj.previousOperator}`);
     }
