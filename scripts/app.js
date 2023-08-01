@@ -10,7 +10,8 @@ const KeypadService = new Keypad();
 const calcObj = {
   previousValue: 0,
   currentValue: 0,
-  operator : "",
+  previousOperator: "",
+  currentOperator : "",
   isGoing: false,
 }
 
@@ -40,22 +41,27 @@ const calcObj = {
       display.current.textContent += number;
       calcObj.currentValue = Number(display.current.textContent);
       console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`)
+      console.log(`curr oper: ${calcObj.currentOperator} prev oper: ${calcObj.previousOperator}`)
     }
 
     if (event.target.className === "operator") {
       /* calculation */
-      calcObj.operator = event.target.textContent;   
-
+      calcObj.currentOperator = event.target.textContent;
       display.current.textContent = "";
-
+      
       if (calcObj.isGoing) {
-        calcObj.previousValue = CalculatorService.calculate(calcObj)
+        calcObj.previousValue = CalculatorService.calculate(calcObj);
+        if (calcObj.previousOperator !== calcObj.currentOperator) {
+          calcObj.previousOperator = calcObj.currentOperator;
+        }
       } else {
         calcObj.previousValue = calcObj.currentValue;
+        calcObj.previousOperator = calcObj.currentOperator;
         calcObj.isGoing = true;
       }
 
-      console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`)
+      console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`);
+      console.log(`curr oper: ${calcObj.currentOperator} prev oper: ${calcObj.previousOperator}`);
     }
 
     if (event.target.className === "decimal") {

@@ -19,7 +19,7 @@ class Calculator {
   }
 
   calculate(calcObj) {
-    switch (calcObj.operator) {
+    switch (calcObj.previousOperator) {
       case '+':
         return this.add(calcObj);
 
