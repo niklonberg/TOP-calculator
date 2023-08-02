@@ -1,10 +1,20 @@
 class Keypad {
-  constructor() {
+  constructor(display, calcObj) {
+    this.display = display;
+    this.calcObj = calcObj;
+  }
+
+  resetCalculator() {
+    this.calcObj.previousValue = 0;
+    this.calcObj.currentValue = 0;
+    this.calcObj.previousOperator = "";
+    this.calcObj.currentOperator = "";
+    this.calcObj.isGoing = false;
   }
   
-  clear(display) {
-    display.last.textContent = "";
-    display.current.textContent = "";
+  clearDisplay() {
+    this.display.last.textContent = "";
+    this.display.current.textContent = "";
   }
 }
 

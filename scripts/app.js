@@ -2,10 +2,6 @@
 import Calculator from "../services/calculator-service.js";
 import Keypad from "../services/keypad-service.js"
 
-/* class instantiation */
-const CalculatorService = new Calculator();
-const KeypadService = new Keypad();
-
 /* Calculation object */
 const calcObj = {
   previousValue: 0,
@@ -29,6 +25,10 @@ const calcObj = {
   
   /* keypad */
   const keypad = document.querySelector(".keypad");
+
+/* class instantiation */
+const CalculatorService = new Calculator();
+const KeypadService = new Keypad(display, calcObj);
 
 /* main */
 
@@ -77,9 +77,8 @@ const calcObj = {
     }
 
     if (event.target.className ==="all-clear") {
-      display.current.textContent = "";
-      display.last.textContent = "";
+      KeypadService.clearDisplay();
+      KeypadService.resetCalculator();
     }
-
 
   })
