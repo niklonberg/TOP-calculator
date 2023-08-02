@@ -71,7 +71,9 @@ const calcObj = {
     }
 
     if (event.target.className === "decimal") {
-      display.current.textContent += ".";
+      if (!display.current.textContent.includes('.')) {
+        display.current.textContent += ".";
+      }
     }
 
     if (event.target.className ==="all-clear") {
