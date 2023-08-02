@@ -30,7 +30,10 @@ class Calculator {
         return this.divide(calcObj);
         
       case 'x':
-        return this.multiply(calcObj)
+        return this.multiply(calcObj);
+
+      case '=':
+        return calcObj.currentValue;
     }
   }
 }

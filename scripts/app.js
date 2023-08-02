@@ -71,11 +71,13 @@ const calcObj = {
     }
 
     if (event.target.className === "decimal") {
-      display.current.textContent += ",";
+      display.current.textContent += ".";
     }
 
     if (event.target.className ==="all-clear") {
       display.current.textContent = "";
       display.last.textContent = "";
     }
+
+
   })
