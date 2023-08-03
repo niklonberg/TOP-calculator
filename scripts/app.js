@@ -34,8 +34,12 @@ const KeypadService = new Keypad(display, calcObj);
 
   /* event listeners */
   displayUndo.addEventListener('click', () => {
-    display.current.textContent = display.current.textContent.slice(0, -1);
-    calcObj.currentValue = Number(display.current.textContent);
+    if (display.current.textContent === "") {
+      return
+    } else {
+      display.current.textContent = display.current.textContent.slice(0, -1);
+      calcObj.currentValue = Number(display.current.textContent);
+    }
   })
 
   keypad.addEventListener('click', (event) => {
