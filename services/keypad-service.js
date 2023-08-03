@@ -4,6 +4,11 @@ class Keypad {
     this.calcObj = calcObj;
   }
 
+  addNumber(number) {
+    this.display.current.textContent += number;
+    this.calcObj.currentValue = Number(this.display.current.textContent);
+  }
+
   updateOperator() {
     this.calcObj.previousOperator = this.calcObj.currentOperator;
   }

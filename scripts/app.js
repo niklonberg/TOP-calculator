@@ -36,8 +36,7 @@ const KeypadService = new Keypad(display, calcObj);
   function handleNumberClick(event) {
     if (event.target.className === "number") {
       const number = event.target.textContent;
-      display.current.textContent += number;
-      calcObj.currentValue = Number(display.current.textContent);
+      KeypadService.addNumber(number)
       console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`)
       console.log(`curr oper: ${calcObj.currentOperator} prev oper: ${calcObj.previousOperator}`)
     }
@@ -81,6 +80,12 @@ const KeypadService = new Keypad(display, calcObj);
       KeypadService.resetCalculator();
     }
   }
+
+  function handlePlusMinusClick(event) {
+    if (event.target.className === "plus_minus") {
+      
+    }
+  }
   
 
   /* event listeners */
@@ -99,4 +104,5 @@ const KeypadService = new Keypad(display, calcObj);
     handleOperatorClick(event);
     handleDecimalClick(event);
     handleAllClearClick(event);
+    handlePlusMinusClick(event);
   })
