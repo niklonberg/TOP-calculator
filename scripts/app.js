@@ -43,22 +43,7 @@ const KeypadService = new Keypad(display, calcObj);
     }
   }
 
-  
-
-  /* event listeners */
-  displayUndo.addEventListener('click', () => {
-    if (display.current.textContent === "") {
-      return
-    } else {
-      display.current.textContent = display.current.textContent.slice(0, -1);
-      calcObj.currentValue = Number(display.current.textContent);
-    }
-  })
-
-  keypad.addEventListener('click', (event) => {
-    console.log(event.target)
-    handleNumberClick(event)
-
+  function handleOperatorClick(event) {
     if (event.target.className === "operator") {
       calcObj.currentOperator = event.target.textContent;
 
@@ -80,16 +65,38 @@ const KeypadService = new Keypad(display, calcObj);
       console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`);
       console.log(`curr oper: ${calcObj.currentOperator} prev oper: ${calcObj.previousOperator}`);
     }
+  }
 
+  function handleDecimalClick(event) {
     if (event.target.className === "decimal") {
       if (!display.current.textContent.includes('.')) {
         display.current.textContent += ".";
       }
     }
+  }
 
+  function handleAllClearClick(event) {
     if (event.target.className === "all-clear") {
       KeypadService.clearDisplay();
       KeypadService.resetCalculator();
     }
+  }
+  
 
+  /* event listeners */
+  displayUndo.addEventListener('click', () => {
+    if (display.current.textContent === "") {
+      return
+    } else {
+      display.current.textContent = display.current.textContent.slice(0, -1);
+      calcObj.currentValue = Number(display.current.textContent);
+    }
+  })
+
+  keypad.addEventListener('click', (event) => {
+    console.log(event.target)
+    handleNumberClick(event);
+    handleOperatorClick(event);
+    handleDecimalClick(event);
+    handleAllClearClick(event);
   })
