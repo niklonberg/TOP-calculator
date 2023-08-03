@@ -4,6 +4,10 @@ class Keypad {
     this.calcObj = calcObj;
   }
 
+  updateOperator() {
+    this.calcObj.previousOperator = this.calcObj.currentOperator;
+  }
+
   resetCalculator() {
     this.calcObj.previousValue = 0;
     this.calcObj.currentValue = 0;

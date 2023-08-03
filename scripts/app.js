@@ -45,22 +45,21 @@ const KeypadService = new Keypad(display, calcObj);
     }
 
     if (event.target.className === "operator") {
-      /* calculation */
       calcObj.currentOperator = event.target.textContent;
 
       if (calcObj.currentValue === "") {
-        calcObj.previousOperator = calcObj.currentOperator;
+        KeypadService.updateOperator();
         return
       }
       
       if (calcObj.isGoing) {
         calcObj.previousValue = CalculatorService.calculate(calcObj);
         if (calcObj.previousOperator !== calcObj.currentOperator) {
-          calcObj.previousOperator = calcObj.currentOperator;
+          KeypadService.updateOperator();
         }
       } else {
         calcObj.previousValue = calcObj.currentValue;
-        calcObj.previousOperator = calcObj.currentOperator;
+        KeypadService.updateOperator();
         calcObj.isGoing = true;
       }
 
