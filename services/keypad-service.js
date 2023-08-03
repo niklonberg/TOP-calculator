@@ -9,6 +9,15 @@ class Keypad {
     this.calcObj.currentValue = Number(this.display.current.textContent);
   }
 
+  removeNumber() {
+    if (this.display.current.textContent === "") {
+      return
+    } else {
+      this.display.current.textContent = this.display.current.textContent.slice(0, -1);
+      this.calcObj.currentValue = Number(this.display.current.textContent);
+    }
+  }
+
   updateOperator() {
     this.calcObj.previousOperator = this.calcObj.currentOperator;
   }
