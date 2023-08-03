@@ -32,6 +32,19 @@ const KeypadService = new Keypad(display, calcObj);
 
 /* main */
 
+  /* functions */
+  function handleNumberClick(event) {
+    if (event.target.className === "number") {
+      const number = event.target.textContent;
+      display.current.textContent += number;
+      calcObj.currentValue = Number(display.current.textContent);
+      console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`)
+      console.log(`curr oper: ${calcObj.currentOperator} prev oper: ${calcObj.previousOperator}`)
+    }
+  }
+
+  
+
   /* event listeners */
   displayUndo.addEventListener('click', () => {
     if (display.current.textContent === "") {
@@ -44,14 +57,7 @@ const KeypadService = new Keypad(display, calcObj);
 
   keypad.addEventListener('click', (event) => {
     console.log(event.target)
-
-    if (event.target.className === "number") {
-      const number = event.target.textContent;
-      display.current.textContent += number;
-      calcObj.currentValue = Number(display.current.textContent);
-      console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`)
-      console.log(`curr oper: ${calcObj.currentOperator} prev oper: ${calcObj.previousOperator}`)
-    }
+    handleNumberClick(event)
 
     if (event.target.className === "operator") {
       calcObj.currentOperator = event.target.textContent;
