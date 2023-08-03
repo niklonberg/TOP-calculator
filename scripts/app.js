@@ -33,6 +33,11 @@ const KeypadService = new Keypad(display, calcObj);
 /* main */
 
   /* event listeners */
+  displayUndo.addEventListener('click', () => {
+    display.current.textContent = display.current.textContent.slice(0, -1);
+    calcObj.currentValue = Number(display.current.textContent);
+  })
+
   keypad.addEventListener('click', (event) => {
     console.log(event.target)
 
@@ -72,7 +77,7 @@ const KeypadService = new Keypad(display, calcObj);
       }
     }
 
-    if (event.target.className ==="all-clear") {
+    if (event.target.className === "all-clear") {
       KeypadService.clearDisplay();
       KeypadService.resetCalculator();
     }
