@@ -83,13 +83,19 @@ const KeypadService = new Keypad(display, calcObj);
 
   function handlePlusMinusClick(event) {
     if (event.target.className === "plus_minus") {
-      
+      /* add logic for always plus/minus the previousValue if an equals 
+      operation just occured, otherwise plus/minus the currentValue */
+      CalculatorService.plusMinus(calcObj);
+      console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`);
     }
   }
   
 
   /* event listeners */
   displayUndo.addEventListener('click', () => {
+    /* add logic for always deleting previousValue if an equals
+    operation just occured, otherwise 
+    remove a number from the currentValue */
     KeypadService.removeNumber();
   })
 
