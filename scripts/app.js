@@ -90,6 +90,7 @@ const KeypadService = new Keypad(display, calcObj);
   /* event listeners */
   displayUndo.addEventListener('click', () => {
     if (display.current.textContent === "") {
+      KeypadService.clearDisplay();
       KeypadService.resetCalculator();
     } else {
       KeypadService.removeOneCharacter();
