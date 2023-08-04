@@ -9,7 +9,7 @@ class Keypad {
     this.calcObj.currentValue = Number(this.display.current.textContent);
   }
 
-  removeNumber() {
+  removeOneCharacter() {
     if (this.display.current.textContent === "") {
       return
     } else {
@@ -17,6 +17,8 @@ class Keypad {
       this.calcObj.currentValue = Number(this.display.current.textContent);
     }
   }
+
+  
 
   updateOperator() {
     this.calcObj.previousOperator = this.calcObj.currentOperator;
