@@ -8,12 +8,16 @@ class Keypad {
     this.display.current.textContent += number;
   }
 
+  addDecimal() {
+    this.display.current.textContent += ".";
+  }
+
   removeOneCharacter() {
-    if (this.display.current.textContent === "") {
+    /* if (this.display.current.textContent === "") {
       return
     } else {
       this.display.current.textContent = this.display.current.textContent.slice(0, -1);
-    }
+    } */
   }
 
   updateCurrentValue() {

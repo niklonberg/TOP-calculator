@@ -21,15 +21,15 @@ class Calculator {
   plusMinus(calcObj, usePreviousValue = false) {
     if (usePreviousValue) {
       if (calcObj.previousValue > 0) {
-        calcObj.previousValue = -(calcObj.previousValue)
+        calcObj.previousValue = -(calcObj.previousValue);
       } else {
-        calcObj.previousValue = calcObj.previousValue * -1
+        calcObj.previousValue = calcObj.previousValue * -1;
       }
     } else {
       if (calcObj.currentValue > 0) {
-        calcObj.currentValue = -(calcObj.currentValue)
+        calcObj.currentValue = -(calcObj.currentValue);
       } else {
-        calcObj.currentValue = calcObj.currentValue * -1
+        calcObj.currentValue = calcObj.currentValue * -1;
       }
     }
   }

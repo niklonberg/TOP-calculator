@@ -66,7 +66,7 @@ const KeypadService = new Keypad(display, calcObj);
   function handleDecimalClick(event) {
     if (event.target.className === "decimal") {
       if (!display.current.textContent.includes('.')) {
-        display.current.textContent += ".";
+        KeypadService.addDecimal();
       }
     }
   }
