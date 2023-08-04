@@ -57,8 +57,7 @@ const KeypadService = new Keypad(display, calcObj);
         calcObj.isGoing = true;
       }
 
-      display.current.textContent = "";
-      calcObj.currentValue = "";
+      KeypadService.resetCurrentValue();
       KeypadService.updateOperator();
     }
   }

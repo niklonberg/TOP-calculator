@@ -28,6 +28,11 @@ class Keypad {
     this.calcObj.previousOperator = this.calcObj.currentOperator;
   }
 
+  resetCurrentValue() {
+    this.display.current.textContent = "";
+    this.calcObj.currentValue = 0;
+  }
+
   resetCalculator() {
     this.calcObj.previousValue = 0;
     this.calcObj.currentValue = 0;
