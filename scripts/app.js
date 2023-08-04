@@ -37,8 +37,6 @@ const KeypadService = new Keypad(display, calcObj);
     if (event.target.className === "number") {
       const number = event.target.textContent;
       KeypadService.addNumber(number)
-      console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`)
-      console.log(`curr oper: ${calcObj.currentOperator} prev oper: ${calcObj.previousOperator}`)
     }
   }
 
@@ -61,8 +59,6 @@ const KeypadService = new Keypad(display, calcObj);
       display.current.textContent = "";
       calcObj.currentValue = "";
       KeypadService.updateOperator();
-      console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`);
-      console.log(`curr oper: ${calcObj.currentOperator} prev oper: ${calcObj.previousOperator}`);
     }
   }
 
@@ -83,10 +79,11 @@ const KeypadService = new Keypad(display, calcObj);
 
   function handlePlusMinusClick(event) {
     if (event.target.className === "plus_minus") {
-      /* add logic for always plus/minus the previousValue if an equals 
-      operation just occured, otherwise plus/minus the currentValue */
-      CalculatorService.plusMinus(calcObj);
-      console.log(`curr value: ${calcObj.currentValue} prev value: ${calcObj.previousValue}`);
+      if (calcObj.previousOperator === "=") {
+        CalculatorService.plusMinus(calcObj, true);
+      } else {
+        CalculatorService.plusMinus(calcObj);
+      }
     }
   }
   
@@ -106,4 +103,5 @@ const KeypadService = new Keypad(display, calcObj);
     handleDecimalClick(event);
     handleAllClearClick(event);
     handlePlusMinusClick(event);
+    console.log(calcObj)
   })

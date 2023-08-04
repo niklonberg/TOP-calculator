@@ -18,11 +18,19 @@ class Calculator {
     return calcObj.previousValue * calcObj.currentValue;
   }
 
-  plusMinus(calcObj) {
-    if (calcObj.currentValue > 0) {
-      calcObj.currentValue = -(calcObj.currentValue)
+  plusMinus(calcObj, usePreviousValue = false) {
+    if (usePreviousValue) {
+      if (calcObj.previousValue > 0) {
+        calcObj.previousValue = -(calcObj.previousValue)
+      } else {
+        calcObj.previousValue = calcObj.previousValue * -1
+      }
     } else {
-      calcObj.currentValue = +(calcObj.currentValue)
+      if (calcObj.currentValue > 0) {
+        calcObj.currentValue = -(calcObj.currentValue)
+      } else {
+        calcObj.currentValue = calcObj.currentValue * -1
+      }
     }
   }
 
