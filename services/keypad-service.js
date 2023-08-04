@@ -13,11 +13,7 @@ class Keypad {
   }
 
   removeOneCharacter() {
-    /* if (this.display.current.textContent === "") {
-      return
-    } else {
-      this.display.current.textContent = this.display.current.textContent.slice(0, -1);
-    } */
+    this.display.current.textContent = this.display.current.textContent.slice(0, -1);
   }
 
   updateCurrentValue() {

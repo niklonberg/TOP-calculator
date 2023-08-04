@@ -86,14 +86,16 @@ const KeypadService = new Keypad(display, calcObj);
       }
     }
   }
-  
 
   /* event listeners */
   displayUndo.addEventListener('click', () => {
-    /* add logic for always deleting previousValue if an equals
-    operation just occured, otherwise 
-    remove a number from the currentValue */
-    KeypadService.removeNumber();
+    if (display.current.textContent === "") {
+      KeypadService.resetCalculator();
+    } else {
+      KeypadService.removeOneCharacter();
+      KeypadService.updateCurrentValue();
+    }
+    console.log(calcObj)
   })
 
   keypad.addEventListener('click', (event) => {
