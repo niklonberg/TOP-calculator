@@ -6,7 +6,6 @@ class Keypad {
 
   addNumber(number) {
     this.display.current.textContent += number;
-    this.calcObj.currentValue = Number(this.display.current.textContent);
   }
 
   removeOneCharacter() {
@@ -14,11 +13,12 @@ class Keypad {
       return
     } else {
       this.display.current.textContent = this.display.current.textContent.slice(0, -1);
-      this.calcObj.currentValue = Number(this.display.current.textContent);
     }
   }
 
-  
+  updateCurrentValue() {
+    this.calcObj.currentValue = Number(this.display.current.textContent);
+  }
 
   updateOperator() {
     this.calcObj.previousOperator = this.calcObj.currentOperator;
