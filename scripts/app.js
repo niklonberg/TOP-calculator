@@ -33,7 +33,9 @@ const KeypadService = new Keypad(display, calcObj);
   function handleNumberClick(event) {
     if (event.target.className === "number") {
       const number = event.target.textContent;
-      if (calcObj.currentValue === 0) {
+      if (calcObj.currentValue === 0 && calcObj.previousOperator === "=") {
+        KeypadService.resetDisplay();
+      } else if (calcObj.currentValue === 0) {
         KeypadService.resetDisplayCurrent();
       }
 
@@ -84,7 +86,7 @@ const KeypadService = new Keypad(display, calcObj);
 
   function handleAllClearClick(event) {
     if (event.target.className === "all-clear") {
-      KeypadService.clearDisplay();
+      KeypadService.resetDisplay();
       KeypadService.resetCalculator();
     }
   }
@@ -108,7 +110,7 @@ const KeypadService = new Keypad(display, calcObj);
   /* event listeners */
   displayUndo.addEventListener('click', () => {
     if (display.current.textContent === "") {
-      KeypadService.clearDisplay();
+      KeypadService.resetDisplay();
       KeypadService.resetCalculator();
     } else {
       KeypadService.removeOneCharacter();

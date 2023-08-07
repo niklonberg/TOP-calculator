@@ -25,11 +25,13 @@ class Keypad {
   }
 
   updateDisplayResult() {
-    if (this.calcObj.currentOperator === "=") {
+    const operator = this.calcObj.currentOperator;
+
+    if (operator === "=") {
       this.display.result.textContent = 
       `${this.calcObj.previousValue} ${this.calcObj.previousOperator} ${this.calcObj.currentValue} =`;
       console.log('first')
-    } else { /* think i need an else if here */
+    } else {
       this.display.result.textContent = 
       `${this.calcObj.previousValue} ${this.calcObj.currentOperator}`;
       console.log('second')
@@ -53,10 +55,9 @@ class Keypad {
     this.calcObj.currentValue = 0;
     this.calcObj.previousOperator = "";
     this.calcObj.currentOperator = "";
-    this.calcObj.isGoing = false;
   }
   
-  clearDisplay() {
+  resetDisplay() {
     this.display.result.textContent = "";
     this.display.current.textContent = "";
   }
