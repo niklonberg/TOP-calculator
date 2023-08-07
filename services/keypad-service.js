@@ -53,6 +53,7 @@ class Keypad {
     this.calcObj.currentValue = 0;
     this.calcObj.previousOperator = "";
     this.calcObj.currentOperator = "";
+    this.calcObj.isGoing = false;
   }
   
   clearDisplay() {

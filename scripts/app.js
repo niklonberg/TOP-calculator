@@ -54,8 +54,13 @@ const KeypadService = new Keypad(display, calcObj);
       }
 
       if (calcObj.previousOperator !== "") {
-        KeypadService.updateDisplayResult();/* problem area */
-        calcObj.previousValue = CalculatorService.calculate(calcObj);
+        if (calcObj.currentOperator === "=") {
+          KeypadService.updateDisplayResult()
+          calcObj.previousValue = CalculatorService.calculate(calcObj);
+        } else {
+          calcObj.previousValue = CalculatorService.calculate(calcObj);
+          KeypadService.updateDisplayResult();
+        }
         console.log('going')
       } else {
         calcObj.previousValue = calcObj.currentValue;
