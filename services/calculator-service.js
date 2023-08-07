@@ -18,6 +18,10 @@ class Calculator {
     return calcObj.previousValue * calcObj.currentValue;
   }
 
+  power(calcObj) {
+    
+  }
+
   plusMinus(calcObj, usePreviousValue = false) {
     if (usePreviousValue) {
       if (calcObj.previousValue > 0) {

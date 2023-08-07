@@ -77,6 +77,12 @@ const KeypadService = new Keypad(display, calcObj);
     }
   }
 
+  function handlePowerClick(event) {
+    if (event.target.className === "power") {
+      
+    }
+  }
+
   function handlePlusMinusClick(event) {
     if (event.target.className === "plus_minus") {
       if (calcObj.previousOperator === "=") {
