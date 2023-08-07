@@ -35,7 +35,7 @@ class Keypad {
   }
 
   updateDisplayCurrent() {
-    
+    this.display.current.textContent = this.calcObj.previousValue;
   }
 
   resetCurrentValue() {
