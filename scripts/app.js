@@ -36,12 +36,10 @@ const KeypadService = new Keypad(display, calcObj);
       const number = event.target.textContent;
       if (calcObj.currentValue === 0) {
         KeypadService.resetDisplayCurrent();
-        KeypadService.addNumber(number);
-        KeypadService.updateCurrentValue();
-      } else {
-        KeypadService.addNumber(number);
-        KeypadService.updateCurrentValue();
       }
+
+      KeypadService.addNumber(number);
+      KeypadService.updateCurrentValue();
     }
   }
 
