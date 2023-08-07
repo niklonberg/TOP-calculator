@@ -15,12 +15,10 @@ const calcObj = {
 
   /* display */
   const display = {
-    last: document.querySelector(".display__last"),
+    result: document.querySelector(".display__result"),
     current: document.querySelector(".display__current"),
   }
   
-  /* const displayLast = document.querySelector(".display__last");
-  const displayCurrent = document.querySelector(".display__current"); */
   const displayUndo = document.querySelector(".display__undo");
   
   /* keypad */
@@ -79,7 +77,7 @@ const KeypadService = new Keypad(display, calcObj);
 
   function handlePowerClick(event) {
     if (event.target.className === "power") {
-      
+
     }
   }
 

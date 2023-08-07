@@ -41,6 +41,10 @@ class Keypad {
     this.display.last.textContent = "";
     this.display.current.textContent = "";
   }
+
+  updateDisplayResult() {
+    
+  }
 }
 
 export default Keypad
