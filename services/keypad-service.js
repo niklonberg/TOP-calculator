@@ -24,6 +24,20 @@ class Keypad {
     this.calcObj.previousOperator = this.calcObj.currentOperator;
   }
 
+  updateDisplayResult(calculationInProgress = false) {
+    if (calculationInProgress) {
+      this.display.result.textContent = 
+      `${this.calcObj.previousValue} ${this.calcObj.previousOperator} ${this.calcObj.currentValue} =`;
+    } else {
+      this.display.result.textContent = 
+      `${this.calcObj.currentValue} ${this.calcObj.currentOperator}`;
+    }
+  }
+
+  updateDisplayCurrent() {
+    
+  }
+
   resetCurrentValue() {
     this.calcObj.currentValue = 0;
   }
@@ -43,18 +57,6 @@ class Keypad {
   clearDisplay() {
     this.display.result.textContent = "";
     this.display.current.textContent = "";
-  }
-
-  updateDisplayResult(calculationInProgress = false) {
-    if (calculationInProgress) {
-      this.display.result.textContent = `${this.calcObj.currentValue} ${this.calcObj.currentOperator}`;
-    } else {
-      this.display.result.textContent = `${this.calcObj.previousValue} ${this.calcObj.previousOperator} ${this.calcObj.currentValue} =`;
-    }
-  }
-
-  showResult() {
-    
   }
 }
 

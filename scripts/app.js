@@ -8,7 +8,6 @@ const calcObj = {
   currentValue: 0,
   previousOperator: "",
   currentOperator : "",
-  isGoing: false,
 }
 
 /* references */
@@ -49,17 +48,14 @@ const KeypadService = new Keypad(display, calcObj);
 
       if (calcObj.currentValue === 0) {
         KeypadService.updateOperator();
-        /* KeypadService.updateDisplayResult(true); */
+
         return
       }
-      
-      if (calcObj.isGoing) {
-        /* KeypadService.updateDisplayResult(); */
+
+      if (calcObj.previousOperator !== "") {
         calcObj.previousValue = CalculatorService.calculate(calcObj);
       } else {
         calcObj.previousValue = calcObj.currentValue;
-        /* KeypadService.updateDisplayResult(true); */
-        calcObj.isGoing = true;
       }
 
       KeypadService.resetCurrentValue();
