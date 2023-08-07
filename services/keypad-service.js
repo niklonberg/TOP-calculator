@@ -42,8 +42,12 @@ class Keypad {
     this.display.current.textContent = "";
   }
 
-  updateDisplayResult() {
-    this.display.result.textContent = this.calcObj.previousValue;
+  updateDisplayResult(calculationInProgress = false) {
+    if (calculationInProgress) {
+      this.display.result.textContent = `${this.calcObj.currentValue} ${this.calcObj.currentOperator}`;
+    } else {
+      this.display.result.textContent = `${this.calcObj.previousValue} ${this.calcObj.previousOperator} ${this.calcObj.currentValue} =`;
+    }
   }
 }
 
