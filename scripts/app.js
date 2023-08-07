@@ -48,14 +48,19 @@ const KeypadService = new Keypad(display, calcObj);
 
       if (calcObj.currentValue === 0) {
         KeypadService.updateOperator();
-
+        KeypadService.updateDisplayResult();
+        console.log('new')
         return
       }
 
       if (calcObj.previousOperator !== "") {
+        KeypadService.updateDisplayResult();/* problem area */
         calcObj.previousValue = CalculatorService.calculate(calcObj);
+        console.log('going')
       } else {
         calcObj.previousValue = calcObj.currentValue;
+        KeypadService.updateDisplayResult();
+        console.log('start')
       }
 
       KeypadService.resetCurrentValue();

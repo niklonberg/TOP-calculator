@@ -24,13 +24,15 @@ class Keypad {
     this.calcObj.previousOperator = this.calcObj.currentOperator;
   }
 
-  updateDisplayResult(calculationInProgress = false) {
-    if (calculationInProgress) {
+  updateDisplayResult() {
+    if (this.calcObj.currentOperator === "=") {
       this.display.result.textContent = 
       `${this.calcObj.previousValue} ${this.calcObj.previousOperator} ${this.calcObj.currentValue} =`;
-    } else {
+      console.log('first')
+    } else { /* think i need an else if here */
       this.display.result.textContent = 
-      `${this.calcObj.currentValue} ${this.calcObj.currentOperator}`;
+      `${this.calcObj.previousValue} ${this.calcObj.currentOperator}`;
+      console.log('second')
     }
   }
 
@@ -51,7 +53,6 @@ class Keypad {
     this.calcObj.currentValue = 0;
     this.calcObj.previousOperator = "";
     this.calcObj.currentOperator = "";
-    this.calcObj.isGoing = false;
   }
   
   clearDisplay() {
@@ -59,7 +60,5 @@ class Keypad {
     this.display.current.textContent = "";
   }
 }
-
-
 
 export default Keypad
