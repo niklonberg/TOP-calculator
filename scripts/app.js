@@ -34,6 +34,13 @@ const KeypadService = new Keypad(display, calcObj);
   function handleNumberClick(event) {
     if (event.target.className === "number") {
       const number = event.target.textContent;
+      /* if calcObj.currentValue === 0
+        set display.current.textContent = ""
+         then do the below
+        else {
+          do the below
+        }
+      */
       KeypadService.addNumber(number);
       KeypadService.updateCurrentValue();
     }
@@ -59,6 +66,7 @@ const KeypadService = new Keypad(display, calcObj);
       }
 
       KeypadService.resetCurrentValue();
+      KeypadService.resetDisplayCurrent();
       KeypadService.updateOperator();
     }
   }

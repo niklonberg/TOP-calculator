@@ -25,8 +25,11 @@ class Keypad {
   }
 
   resetCurrentValue() {
-    this.display.current.textContent = "";
     this.calcObj.currentValue = 0;
+  }
+
+  resetDisplayCurrent() {
+    this.display.current.textContent = "";
   }
 
   resetCalculator() {
@@ -49,6 +52,12 @@ class Keypad {
       this.display.result.textContent = `${this.calcObj.previousValue} ${this.calcObj.previousOperator} ${this.calcObj.currentValue} =`;
     }
   }
+
+  showResult() {
+    
+  }
 }
+
+
 
 export default Keypad
