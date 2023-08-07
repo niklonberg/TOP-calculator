@@ -38,12 +38,12 @@ class Keypad {
   }
   
   clearDisplay() {
-    this.display.last.textContent = "";
+    this.display.result.textContent = "";
     this.display.current.textContent = "";
   }
 
   updateDisplayResult() {
-    
+    this.display.result.textContent = this.calcObj.previousValue;
   }
 }
 

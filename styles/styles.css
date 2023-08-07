@@ -6,7 +6,7 @@ body {
   background-color: chocolate;
 }
 
-.display__last, .display__current {
+.display__result, .display__current {
   height: 30px;
   width: 60px;
 }
@@ -15,6 +15,6 @@ body {
   background-color: white;
 }
 
-.display__last {
+.display__result {
   background-color: yellow;
 }

@@ -56,6 +56,7 @@ const KeypadService = new Keypad(display, calcObj);
       }
 
       KeypadService.resetCurrentValue();
+      KeypadService.updateDisplayResult();
       KeypadService.updateOperator();
     }
   }
