@@ -24,7 +24,7 @@ class Keypad {
     this.calcObj.previousOperator = this.calcObj.currentOperator;
   }
 
-  updateDisplayResult() {
+  showPreviousCalculation() {
     const operator = this.calcObj.currentOperator;
 
     if (operator === "=") {
@@ -38,7 +38,7 @@ class Keypad {
     }
   }
 
-  updateDisplayCurrent() {
+  setDisplayCurrentToResult() {
     this.display.current.textContent = this.calcObj.previousValue;
   }
 

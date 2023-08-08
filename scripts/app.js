@@ -50,28 +50,28 @@ const KeypadService = new Keypad(display, calcObj);
 
       if (calcObj.currentValue === 0) {
         KeypadService.updateOperator();
-        KeypadService.updateDisplayResult();
+        KeypadService.showPreviousCalculation();
         console.log('new')
         return
       }
 
       if (calcObj.previousOperator !== "") {
         if (calcObj.currentOperator === "=") {
-          KeypadService.updateDisplayResult()
+          KeypadService.showPreviousCalculation()
           calcObj.previousValue = CalculatorService.calculate(calcObj);
         } else {
           calcObj.previousValue = CalculatorService.calculate(calcObj);
-          KeypadService.updateDisplayResult();
+          KeypadService.showPreviousCalculation();
         }
         console.log('going')
       } else {
         calcObj.previousValue = calcObj.currentValue;
-        KeypadService.updateDisplayResult();
+        KeypadService.showPreviousCalculation();
         console.log('start')
       }
 
       KeypadService.resetCurrentValue();
-      KeypadService.updateDisplayCurrent();
+      KeypadService.setDisplayCurrentToResult();
       KeypadService.updateOperator();
     }
   }
@@ -92,9 +92,7 @@ const KeypadService = new Keypad(display, calcObj);
   }
 
   function handlePowerClick(event) {
-    if (event.target.className === "power") {
-
-    }
+    
   }
 
   function handlePlusMinusClick(event) {
@@ -104,6 +102,7 @@ const KeypadService = new Keypad(display, calcObj);
       } else {
         CalculatorService.plusMinus(calcObj);
       }
+      KeypadService.updateDisplayCurrent();
     }
   }
 
@@ -125,6 +124,7 @@ const KeypadService = new Keypad(display, calcObj);
     handleOperatorClick(event);
     handleDecimalClick(event);
     handleAllClearClick(event);
+    handlePowerClick(event)
     handlePlusMinusClick(event);
     console.log(calcObj)
   })
