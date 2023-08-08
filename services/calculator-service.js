@@ -26,6 +26,27 @@ class Calculator {
     }
   }
 
+  factorial(calcObj, usePreviousValue = false) {
+    let value = 'currentValue';
+
+    if (usePreviousValue) {
+      value = 'previousValue';
+    }
+
+    let num = calcObj[value];
+    let result = 1;
+
+    if (num === 0 || num === 1) {
+      calcObj[value] = result;
+    } else {
+      for (let i = num; i >= 1; i--) {
+        console.log(result)
+        result *= i;
+      }
+      calcObj[value] = result;
+    }
+  }
+
   plusMinus(calcObj, usePreviousValue = false) {
     if (usePreviousValue) {
       if (calcObj.previousValue > 0) {

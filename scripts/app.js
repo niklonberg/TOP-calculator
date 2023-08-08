@@ -103,6 +103,17 @@ const KeypadService = new Keypad(display, calcObj);
     }
   }
 
+function handleFactorialClick(event) {
+  if (event.target.className === 'factorial') {
+    if (calcObj.previousOperator === "=") {
+      CalculatorService.factorial(calcObj, true);
+    } else {
+      CalculatorService.factorial(calcObj);
+    }
+    KeypadService.updateDisplayCurrent();
+  }
+}
+
   function handlePlusMinusClick(event) {
     if (event.target.className === "plus_minus") {
       if (calcObj.previousOperator === "=") {
@@ -132,7 +143,8 @@ const KeypadService = new Keypad(display, calcObj);
     handleOperatorClick(event);
     handleDecimalClick(event);
     handleAllClearClick(event);
-    handlePowerClick(event)
+    handlePowerClick(event);
+    handleFactorialClick(event);
     handlePlusMinusClick(event);
     console.log(calcObj)
   })
