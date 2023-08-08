@@ -93,11 +93,12 @@ const KeypadService = new Keypad(display, calcObj);
 
   function handlePowerClick(event) {
     if (event.target.className === "power") {
+      const operation = event.target.className;
       KeypadService.showPowerCalculation();
       if (calcObj.previousOperator === "=") {
-        CalculatorService.power(calcObj, true);
+        CalculatorService.unaryOperation(calcObj, operation, true);
       } else {
-        CalculatorService.power(calcObj);
+        CalculatorService.unaryOperation(calcObj, operation);
       }
       KeypadService.updateDisplayCurrent();
     }
@@ -105,10 +106,11 @@ const KeypadService = new Keypad(display, calcObj);
 
 function handleFactorialClick(event) {
   if (event.target.className === 'factorial') {
+    const operation = event.target.className;
     if (calcObj.previousOperator === "=") {
-      CalculatorService.factorial(calcObj, true);
+      CalculatorService.unaryOperation(calcObj, operation, true);
     } else {
-      CalculatorService.factorial(calcObj);
+      CalculatorService.unaryOperation(calcObj, operation);
     }
     KeypadService.updateDisplayCurrent();
   }
@@ -116,10 +118,11 @@ function handleFactorialClick(event) {
 
   function handlePlusMinusClick(event) {
     if (event.target.className === "plus_minus") {
+      const operation = event.target.className;
       if (calcObj.previousOperator === "=") {
-        CalculatorService.plusMinus(calcObj, true);
+        CalculatorService.plusMinus(calcObj, operation, true);
       } else {
-        CalculatorService.plusMinus(calcObj);
+        CalculatorService.plusMinus(calcObj, operation);
       }
       KeypadService.updateDisplayCurrent();
     }

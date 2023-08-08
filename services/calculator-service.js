@@ -18,45 +18,39 @@ class Calculator {
     return calcObj.previousValue * calcObj.currentValue;
   }
 
-  power(calcObj, usePreviousValue = false) {
-    let value = 'currentValue';
-    if (usePreviousValue) {
-      value = 'previousValue';
-    }
+  unaryOperation(calcObj, operation, usePreviousValue = false) {
+    let value = usePreviousValue ? 'previousValue' : 'currentValue';
 
-    calcObj[value] = calcObj[value] * calcObj[value];
-  }
+    switch (operation) {
+      case 'power':
+        calcObj[value] = calcObj[value] * calcObj[value];
+        break;
 
-  factorial(calcObj, usePreviousValue = false) {
-    let value = 'currentValue';
-    if (usePreviousValue) {
-      value = 'previousValue';
-    }
+      case 'factorial':
+        let num = calcObj[value];
+        let result = 1;
 
-    let num = calcObj[value];
-    let result = 1;
+        if (num === 0 || num === 1) {
+          calcObj[value] = result;
+        } else {
+          for (let i = num; i >= 1; i--) {
+            console.log(result)
+            result *= i;
+          }
+          calcObj[value] = result;
+        }
+        break;
+      
+      case 'plusMinus':
+        if (calcObj[value] > 0) {
+          calcObj[value] = -(calcObj[value])
+        } else {
+          calcObj[value] = calcObj[value] * -1;
+        }
+        break;
 
-    if (num === 0 || num === 1) {
-      calcObj[value] = result;
-    } else {
-      for (let i = num; i >= 1; i--) {
-        console.log(result)
-        result *= i;
-      }
-      calcObj[value] = result;
-    }
-  }
-
-  plusMinus(calcObj, usePreviousValue = false) {
-    let value = 'currentValue';
-    if (usePreviousValue) {
-      value = 'previousValue';
-    }
-    
-    if (calcObj[value] > 0) {
-      calcObj[value] = -(calcObj[value])
-    } else {
-      calcObj[value] = calcObj[value] * -1;
+      default:
+        break;
     }
   }
 
