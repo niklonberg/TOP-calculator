@@ -92,7 +92,15 @@ const KeypadService = new Keypad(display, calcObj);
   }
 
   function handlePowerClick(event) {
-    
+    if (event.target.className === "power") {
+      if (calcObj.previousOperator === "=") {
+        CalculatorService.power(calcObj, true);
+        
+      } else {
+        CalculatorService.power(calcObj);
+        KeypadService.updateDisplayCurrent();
+      }
+    }
   }
 
   function handlePlusMinusClick(event) {

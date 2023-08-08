@@ -21,7 +21,11 @@ class Keypad {
   }
 
   updateDisplayCurrent() {
-    this.display.current.textContent = this.calcObj.currentValue;
+    if (this.calcObj.currentValue === 0) {
+      this.display.current.textContent = this.calcObj.previousValue;
+    } else {
+      this.display.current.textContent = this.calcObj.currentValue;
+    }
   }
 
   updateOperator() {
