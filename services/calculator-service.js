@@ -19,16 +19,16 @@ class Calculator {
   }
 
   power(calcObj, usePreviousValue = false) {
+    let value = 'currentValue';
     if (usePreviousValue) {
-      calcObj.previousValue = calcObj.previousValue * calcObj.previousValue;
-    } else {
-      calcObj.currentValue = calcObj.currentValue * calcObj.currentValue;
+      value = 'previousValue';
     }
+
+    calcObj[value] = calcObj[value] * calcObj[value];
   }
 
   factorial(calcObj, usePreviousValue = false) {
     let value = 'currentValue';
-
     if (usePreviousValue) {
       value = 'previousValue';
     }
@@ -49,7 +49,6 @@ class Calculator {
 
   plusMinus(calcObj, usePreviousValue = false) {
     let value = 'currentValue';
-
     if (usePreviousValue) {
       value = 'previousValue';
     }
