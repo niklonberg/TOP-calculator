@@ -46,6 +46,14 @@ class Keypad {
     }
   }
 
+  showPowerCalculation() {
+    let value = this.calcObj.currentValue;
+    if (this.calcObj.currentValue === 0) {
+      value = this.calcObj.previousValue;
+    }
+    this.display.result.textContent = `sqr(${value})`
+  }
+
   setDisplayCurrentToResult() {
     this.display.current.textContent = this.calcObj.previousValue;
   }
