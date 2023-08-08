@@ -20,6 +20,10 @@ class Keypad {
     this.calcObj.currentValue = Number(this.display.current.textContent);
   }
 
+  updateDisplayCurrent() {
+    this.display.current.textContent = this.calcObj.currentValue;
+  }
+
   updateOperator() {
     this.calcObj.previousOperator = this.calcObj.currentOperator;
   }
