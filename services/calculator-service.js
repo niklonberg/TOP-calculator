@@ -48,18 +48,16 @@ class Calculator {
   }
 
   plusMinus(calcObj, usePreviousValue = false) {
+    let value = 'currentValue';
+
     if (usePreviousValue) {
-      if (calcObj.previousValue > 0) {
-        calcObj.previousValue = -(calcObj.previousValue);
-      } else {
-        calcObj.previousValue = calcObj.previousValue * -1;
-      }
+      value = 'previousValue';
+    }
+    
+    if (calcObj[value] > 0) {
+      calcObj[value] = -(calcObj[value])
     } else {
-      if (calcObj.currentValue > 0) {
-        calcObj.currentValue = -(calcObj.currentValue);
-      } else {
-        calcObj.currentValue = calcObj.currentValue * -1;
-      }
+      calcObj[value] = calcObj[value] * -1;
     }
   }
 
