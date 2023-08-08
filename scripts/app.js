@@ -91,41 +91,19 @@ const KeypadService = new Keypad(display, calcObj);
     }
   }
 
-  function handlePowerClick(event) {
-    if (event.target.className === "power") {
-      const operation = event.target.className;
-      KeypadService.showPowerCalculation();
-      if (calcObj.previousOperator === "=") {
-        CalculatorService.unaryOperation(calcObj, operation, true);
-      } else {
-        CalculatorService.unaryOperation(calcObj, operation);
-      }
-      KeypadService.updateDisplayCurrent();
-    }
-  }
-
-function handleFactorialClick(event) {
-  if (event.target.className === 'factorial') {
+  function handleUnaryOperationClick(event) {
     const operation = event.target.className;
+
+    if (event.target.className === "power") {
+      KeypadService.showPowerCalculation();
+    }
+
     if (calcObj.previousOperator === "=") {
       CalculatorService.unaryOperation(calcObj, operation, true);
     } else {
       CalculatorService.unaryOperation(calcObj, operation);
     }
     KeypadService.updateDisplayCurrent();
-  }
-}
-
-  function handlePlusMinusClick(event) {
-    if (event.target.className === "plus_minus") {
-      const operation = event.target.className;
-      if (calcObj.previousOperator === "=") {
-        CalculatorService.plusMinus(calcObj, operation, true);
-      } else {
-        CalculatorService.plusMinus(calcObj, operation);
-      }
-      KeypadService.updateDisplayCurrent();
-    }
   }
 
   /* event listeners */
@@ -146,8 +124,6 @@ function handleFactorialClick(event) {
     handleOperatorClick(event);
     handleDecimalClick(event);
     handleAllClearClick(event);
-    handlePowerClick(event);
-    handleFactorialClick(event);
-    handlePlusMinusClick(event);
+    handleUnaryOperationClick(event);
     console.log(calcObj)
   })
