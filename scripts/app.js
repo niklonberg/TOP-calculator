@@ -45,8 +45,8 @@ const KeypadService = new Keypad(display, calcObj);
   }
 
   function handleOperatorClick(event) {
-    if (event.target.className === "operator") {
-      calcObj.currentOperator = event.target.id;
+    if (event.target.closest('.operator')) {
+      calcObj.currentOperator = event.target.closest('.operator').id;
 
       if (calcObj.currentValue === 0) {
         KeypadService.updateOperator();
