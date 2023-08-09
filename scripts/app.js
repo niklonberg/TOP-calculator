@@ -18,7 +18,7 @@ const calcObj = {
     current: document.querySelector(".display__current"),
   }
   
-  const displayUndo = document.querySelector(".display__undo");
+  const displayBackspace = document.querySelector(".display__backspace");
   
   /* keypad */
   const keypad = document.querySelector(".keypad");
@@ -103,7 +103,7 @@ const KeypadService = new Keypad(display, calcObj);
   }
 
   /* event listeners */
-  displayUndo.addEventListener('click', () => {
+  displayBackspace.addEventListener('click', () => {
     if (display.current.textContent === "") {
       KeypadService.resetDisplay();
       KeypadService.resetCalculator();
