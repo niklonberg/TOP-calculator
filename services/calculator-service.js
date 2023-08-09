@@ -68,6 +68,9 @@ class Calculator {
       case 'x':
         return this.multiply(calcObj);
 
+      case '^': /* change this once you get a proper icon for it? */
+        return this.power(calcObj);
+
       case '=':
         return calcObj.currentValue;
     }
