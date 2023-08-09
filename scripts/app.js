@@ -94,9 +94,9 @@ const KeypadService = new Keypad(display, calcObj);
   function handleUnaryOperationClick(event) {
     const operation = event.target.id;
 
-    if (event.target.id === "power") {
+    /* if (event.target.id === "power") {
       KeypadService.showPowerCalculation();
-    }
+    } */
 
     if (calcObj.previousOperator === "=") {
       CalculatorService.unaryOperation(calcObj, operation, true);

@@ -18,14 +18,14 @@ class Calculator {
     return calcObj.previousValue * calcObj.currentValue;
   }
 
+  power(calcObj) {
+    return calcObj.previousValue ** calcObj.currentValue;
+  }
+
   unaryOperation(calcObj, operation, usePreviousValue = false) {
     let value = usePreviousValue ? 'previousValue' : 'currentValue';
 
     switch (operation) {
-      case 'power':
-        calcObj[value] = calcObj[value] * calcObj[value];
-        break;
-
       case 'factorial':
         let num = calcObj[value];
         let result = 1;
