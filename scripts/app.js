@@ -85,7 +85,7 @@ const KeypadService = new Keypad(display, calcObj);
   }
 
   function handleAllClearClick(event) {
-    if (event.target.className === "all-clear") {
+    if (event.target.closest(".all-clear")) {
       KeypadService.resetDisplay();
       KeypadService.resetCalculator();
     }
