@@ -9,9 +9,9 @@ body {
   min-height: 100vh;
 }
 
-.display__result, .display__current {
-  height: 30px;
-  width: 60px;
+.display {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
 }
 
 .display__current {
@@ -21,3 +21,9 @@ body {
 .display__result {
   background-color: yellow;
 }
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
