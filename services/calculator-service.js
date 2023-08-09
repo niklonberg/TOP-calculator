@@ -41,7 +41,7 @@ class Calculator {
         }
         break;
       
-      case 'plusMinus':
+      case 'plus_minus':
         if (calcObj[value] > 0) {
           calcObj[value] = -(calcObj[value])
         } else {

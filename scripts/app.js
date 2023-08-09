@@ -92,9 +92,9 @@ const KeypadService = new Keypad(display, calcObj);
   }
 
   function handleUnaryOperationClick(event) {
-    const operation = event.target.className;
+    const operation = event.target.id;
 
-    if (event.target.className === "power") {
+    if (event.target.id === "power") {
       KeypadService.showPowerCalculation();
     }
 
@@ -124,6 +124,10 @@ const KeypadService = new Keypad(display, calcObj);
     handleOperatorClick(event);
     handleDecimalClick(event);
     handleAllClearClick(event);
-    handleUnaryOperationClick(event);
+
+    if (event.target.className === "unary") {
+      handleUnaryOperationClick(event);
+    }
+
     console.log(calcObj)
   })
