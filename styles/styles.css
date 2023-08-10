@@ -1,7 +1,7 @@
 :root {
   --number-btn-color: #333333;
   --operator-btn-color: #FE9500;
-  --alt-btn-color: #A5A5A5;
+  --alt-btn-color: #a5a5a5;
 }
 
 *, *::after, *::before {
@@ -18,7 +18,13 @@ body {
 button {
   background-color: var(--number-btn-color);
   color: white;
-  font-size: 20px;
+  font-size: 1.5rem;
+  border: none;
+  outline: 4px solid #575757;
+}
+
+button:hover {
+  font-size: 2rem;
 }
 
 .container {
