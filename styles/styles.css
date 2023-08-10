@@ -27,6 +27,10 @@ button:hover {
   font-size: 2rem;
 }
 
+button:active {
+  font-size: 1.5rem;
+}
+
 .container {
   margin: 0 auto;
   width: 80%;
@@ -41,10 +45,12 @@ button:hover {
 
 .display__current {
   background-color: white;
+  height: 50%;
 }
 
 .display__result {
   background-color: yellow;
+  height: 50%;
 }
 
 .keypad {
@@ -57,11 +63,9 @@ button:hover {
   background-color: var(--operator-btn-color);
 }
 
-/* .operator#\^{
-  background-color: var(--number-btn-color);
-} */
-
 .alt-btn {
   background-color: var(--alt-btn-color);
   color: black;
 }
+
+/* media query */
