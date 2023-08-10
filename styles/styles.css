@@ -54,11 +54,14 @@ button:active {
   
 }
 
-.display__result, .display__current {
+.display__result, 
+.display__current {
   height: 50%;
-  text-align: right;
-  padding: 0.5em;
   font-size: 1.3rem;
+  display: grid;
+  align-items: center;
+  text-align: end;
+  padding-right: 0.5em;
 }
 
 .display__current {
@@ -85,3 +88,31 @@ button:active {
 }
 
 /* media query */
+
+@media (min-width:500px) {
+  html {
+    font-size: 20px;
+  }
+
+  .display {
+    grid-auto-rows: 100px;
+  }
+
+  .keypad {
+    grid-auto-rows: 80px;
+  }
+}
+
+@media (min-width:600px) {
+  html {
+    font-size: 22px;
+  }
+
+  .display {
+    grid-auto-rows: 120px;
+  }
+
+  .keypad {
+    grid-auto-rows: 100px
+  }
+}
