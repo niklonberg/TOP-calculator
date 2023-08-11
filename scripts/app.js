@@ -32,7 +32,6 @@ const KeypadService = new Keypad(display, calcObj);
   /* functions */
   function handleNumberClick(event) {
     if (event.target.className === "number") {
-      /* add length of number check, max 12 digits including decimal point */
       const number = event.target.textContent;
 
       if (calcObj.currentValue === 0 && calcObj.previousOperator === "=") {
@@ -58,23 +57,18 @@ const KeypadService = new Keypad(display, calcObj);
     if (event.target.closest('.operator')) {
       calcObj.currentOperator = event.target.closest('.operator').id;
 
+      if ((calcObj.previousOperator === "" && calcObj.currentOperator === "=") ||
+          (calcObj.previousOperator === "=" && calcObj.currentOperator === "=")) {
+            KeypadService.showMathError();
+            KeypadService.resetCalculator();
+            return
+      }
+
       if (calcObj.currentValue === 0) {
         /* add error handling for x & / by 0 */
         KeypadService.updateOperator();
         KeypadService.showPreviousCalculation();
         console.log('new')
-        return
-      }
-
-      if (calcObj.previousOperator === "" && calcObj.currentOperator === "=") {
-        KeypadService.showMathError();
-        KeypadService.resetCalculator();
-        return
-      }
-
-      if (calcObj.previousOperator === "=" && calcObj.currentOperator === "=") {
-        KeypadService.showMathError();
-        KeypadService.resetCalculator();
         return
       }
 
