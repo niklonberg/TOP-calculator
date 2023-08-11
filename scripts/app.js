@@ -138,7 +138,7 @@ const KeypadService = new Keypad(display, calcObj);
     handleDecimalClick(event);
     handleAllClearClick(event);
 
-    if (event.target.className === "unary") {
+    if (event.target.className.includes("unary")) {
       handleUnaryOperationClick(event);
     }
 
