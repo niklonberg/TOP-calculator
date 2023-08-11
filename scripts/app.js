@@ -41,16 +41,16 @@ const KeypadService = new Keypad(display, calcObj);
         KeypadService.resetDisplayCurrent();
       }
 
-      /* if (display.current.textContent.length <= 11) {
-
-      } */
-      KeypadService.addNumber(number);
+      if (display.current.textContent.length <= 13) {
+        KeypadService.addNumber(number);
+      }
+      
       KeypadService.updateCurrentValue();
 
-      const numberStr = display.current.textContent;
+      /* const numberStr = display.current.textContent;
       console.log(numberStr);
       console.log(typeof(numberStr));
-      console.log(numberStr.length);
+      console.log(numberStr.length); */
     }
   }
 
