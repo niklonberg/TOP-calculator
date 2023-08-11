@@ -69,6 +69,10 @@ class Keypad {
     this.display.result.textContent = "";
     this.display.current.textContent = "";
   }
+
+  showMathError() {
+    this.display.current.textContent = "MathError";
+  }
 }
 
 export default Keypad

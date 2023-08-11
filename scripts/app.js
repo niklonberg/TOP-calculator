@@ -56,10 +56,14 @@ const KeypadService = new Keypad(display, calcObj);
       }
 
       if (calcObj.previousOperator === "" && calcObj.currentOperator === "=") {
+        KeypadService.showMathError();
+        KeypadService.resetCalculator();
         return
       }
 
       if (calcObj.previousOperator === "=" && calcObj.currentOperator === "=") {
+        KeypadService.showMathError();
+        KeypadService.resetCalculator();
         return
       }
 
