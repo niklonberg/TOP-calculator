@@ -32,15 +32,25 @@ const KeypadService = new Keypad(display, calcObj);
   /* functions */
   function handleNumberClick(event) {
     if (event.target.className === "number") {
+      /* add length of number check, max 12 digits including decimal point */
       const number = event.target.textContent;
+
       if (calcObj.currentValue === 0 && calcObj.previousOperator === "=") {
         KeypadService.resetDisplay();
       } else if (calcObj.currentValue === 0) {
         KeypadService.resetDisplayCurrent();
       }
 
+      /* if (display.current.textContent.length <= 11) {
+
+      } */
       KeypadService.addNumber(number);
       KeypadService.updateCurrentValue();
+
+      const numberStr = display.current.textContent;
+      console.log(numberStr);
+      console.log(typeof(numberStr));
+      console.log(numberStr.length);
     }
   }
 
@@ -49,7 +59,7 @@ const KeypadService = new Keypad(display, calcObj);
       calcObj.currentOperator = event.target.closest('.operator').id;
 
       if (calcObj.currentValue === 0) {
-        
+        /* add error handling for x & / by 0 */
         KeypadService.updateOperator();
         KeypadService.showPreviousCalculation();
         console.log('new')
@@ -90,7 +100,7 @@ const KeypadService = new Keypad(display, calcObj);
   }
 
   function handleDecimalClick(event) {
-    if (event.target.className === "decimal") {
+    if (event.target.className.includes("decimal")) {
       if (!display.current.textContent.includes('.')) {
         KeypadService.addDecimal();
       }
