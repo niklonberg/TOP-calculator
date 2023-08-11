@@ -62,13 +62,13 @@ class Calculator {
       case '-':
         return this.subtract(calcObj);
 
-      case '%':
+      case '/':
         return this.divide(calcObj);
         
       case 'x':
         return this.multiply(calcObj);
 
-      case '^': /* change this once you get a proper icon for it? */
+      case '^':
         return this.power(calcObj);
 
       case '=':

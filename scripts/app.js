@@ -66,6 +66,9 @@ const KeypadService = new Keypad(display, calcObj);
 
       if (calcObj.currentValue === 0) {
         /* add error handling for x & / by 0 */
+        if (calcObj.currentOperator === "x" || "/") {
+
+        }
         KeypadService.updateOperator();
         KeypadService.showPreviousCalculation();
         console.log('new')
