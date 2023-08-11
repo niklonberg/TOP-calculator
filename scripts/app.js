@@ -49,6 +49,7 @@ const KeypadService = new Keypad(display, calcObj);
       calcObj.currentOperator = event.target.closest('.operator').id;
 
       if (calcObj.currentValue === 0) {
+        
         KeypadService.updateOperator();
         KeypadService.showPreviousCalculation();
         console.log('new')
