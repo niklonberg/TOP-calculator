@@ -5,7 +5,7 @@ import Keypad from "../services/keypad-service.js"
 /* Calculation object */
 const calcObj = {
   previousValue: 0,
-  currentValue: 0,
+  currentValue: "",
   previousOperator: "",
   currentOperator : "",
 }
@@ -34,9 +34,9 @@ const KeypadService = new Keypad(display, calcObj);
     if (event.target.className === "number") {
       const number = event.target.textContent;
 
-      if (calcObj.currentValue === 0 && calcObj.previousOperator === "=") {
+      if (calcObj.currentValue === "" && calcObj.previousOperator === "=") {
         KeypadService.resetDisplay();
-      } else if (calcObj.currentValue === 0) {
+      } else if (calcObj.currentValue === "") {
         KeypadService.resetDisplayCurrent();
       }
 
@@ -64,11 +64,7 @@ const KeypadService = new Keypad(display, calcObj);
             return
       }
 
-      if (calcObj.currentValue === 0) {
-        /* add error handling for x & / by 0 */
-        if (calcObj.currentOperator === "x" || "/") {
-
-        }
+      if (calcObj.currentValue === "") {
         KeypadService.updateOperator();
         KeypadService.showPreviousCalculation();
         console.log('new')

@@ -21,7 +21,7 @@ class Keypad {
   }
 
   updateDisplayCurrent() {
-    if (this.calcObj.currentValue === 0) {
+    if (this.calcObj.currentValue === "") {
       this.display.current.textContent = this.calcObj.previousValue;
     } else {
       this.display.current.textContent = this.calcObj.currentValue;
@@ -51,7 +51,7 @@ class Keypad {
   }
 
   resetCurrentValue() {
-    this.calcObj.currentValue = 0;
+    this.calcObj.currentValue = "";
   }
 
   resetDisplayCurrent() {
@@ -60,7 +60,7 @@ class Keypad {
 
   resetCalculator() {
     this.calcObj.previousValue = 0;
-    this.calcObj.currentValue = 0;
+    this.calcObj.currentValue = "";
     this.calcObj.previousOperator = "";
     this.calcObj.currentOperator = "";
   }
