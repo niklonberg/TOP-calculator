@@ -72,13 +72,14 @@ const KeypadService = new Keypad(display, calcObj);
       }
 
       if (calcObj.previousOperator !== "") {
-        const result = CalculatorService.calculate(calcObj);
+        let result = CalculatorService.calculate(calcObj);
+        result = CalculatorService.roundToFive(result);
         
         if (calcObj.currentOperator === "=") {
           KeypadService.showPreviousCalculation()
-          calcObj.previousValue = CalculatorService.calculate(calcObj);
+          calcObj.previousValue = result;
         } else {
-          calcObj.previousValue = CalculatorService.calculate(calcObj);
+          calcObj.previousValue = result;
           KeypadService.showPreviousCalculation();
         }
         console.log('going')
