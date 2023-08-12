@@ -22,6 +22,10 @@ class Calculator {
     return calcObj.previousValue ** calcObj.currentValue;
   }
 
+  roundToFive(result) {
+    return +(Math.round(result + "e+5" + "e-2"));
+  }
+
   unaryOperation(calcObj, operation, usePreviousValue = false) {
     let value = usePreviousValue ? 'previousValue' : 'currentValue';
 
