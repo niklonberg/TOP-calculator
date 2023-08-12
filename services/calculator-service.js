@@ -74,9 +74,6 @@ class Calculator {
 
       case '^':
         return this.power(calcObj);
-
-      case '=':
-        return calcObj.currentValue;
     }
   }
 }

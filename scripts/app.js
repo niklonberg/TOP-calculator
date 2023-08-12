@@ -72,6 +72,8 @@ const KeypadService = new Keypad(display, calcObj);
       }
 
       if (calcObj.previousOperator !== "") {
+        const result = CalculatorService.calculate(calcObj);
+        
         if (calcObj.currentOperator === "=") {
           KeypadService.showPreviousCalculation()
           calcObj.previousValue = CalculatorService.calculate(calcObj);
