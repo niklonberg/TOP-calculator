@@ -38,11 +38,9 @@ class Keypad {
     if (operator === "=") {
       this.display.result.textContent = 
       `${this.calcObj.previousValue} ${this.calcObj.previousOperator} ${this.calcObj.currentValue} =`;
-      console.log('first')
     } else {
       this.display.result.textContent = 
       `${this.calcObj.previousValue} ${this.calcObj.currentOperator}`;
-      console.log('second')
     }
   }
 

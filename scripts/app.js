@@ -45,11 +45,6 @@ const KeypadService = new Keypad(display, calcObj);
       }
       
       KeypadService.updateCurrentValue();
-
-      /* const numberStr = display.current.textContent;
-      console.log(numberStr);
-      console.log(typeof(numberStr));
-      console.log(numberStr.length); */
     }
   }
 
@@ -67,7 +62,6 @@ const KeypadService = new Keypad(display, calcObj);
       if (calcObj.currentValue === "") {
         KeypadService.updateOperator();
         KeypadService.showPreviousCalculation();
-        console.log('new')
         return
       }
 
@@ -82,11 +76,9 @@ const KeypadService = new Keypad(display, calcObj);
           calcObj.previousValue = result;
           KeypadService.showPreviousCalculation();
         }
-        console.log('going')
       } else {
         calcObj.previousValue = calcObj.currentValue;
         KeypadService.showPreviousCalculation();
-        console.log('start')
       }
 
       KeypadService.resetCurrentValue();
@@ -130,11 +122,9 @@ const KeypadService = new Keypad(display, calcObj);
       KeypadService.removeOneCharacter();
       KeypadService.updateCurrentValue();
     }
-    console.log(calcObj)
   })
 
   keypad.addEventListener('click', (event) => {
-    console.log(event.target)
     handleNumberClick(event);
     handleOperatorClick(event);
     handleDecimalClick(event);
@@ -143,6 +133,4 @@ const KeypadService = new Keypad(display, calcObj);
     if (event.target.className.includes("unary")) {
       handleUnaryOperationClick(event);
     }
-
-    console.log(calcObj)
   })

@@ -38,7 +38,6 @@ class Calculator {
           calcObj[value] = result;
         } else {
           for (let i = num; i >= 1; i--) {
-            console.log(result)
             result *= i;
           }
           calcObj[value] = result;
