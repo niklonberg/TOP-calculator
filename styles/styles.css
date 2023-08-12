@@ -51,12 +51,18 @@ button:active {
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-auto-rows: 80px;
-  
+}
+
+.display__result {
+  height: 60%;
+}
+
+.display__current {
+  height: 40%;
 }
 
 .display__result, 
 .display__current {
-  height: 50%;
   font-size: 1.3rem;
   display: grid;
   align-items: center;
